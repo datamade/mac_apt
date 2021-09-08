@@ -13,12 +13,13 @@ jobs:
   build:
 
     runs-on: ${{ matrix.os }}
+    env:
+      TEMP: ${{ runner.temp }}
     strategy:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
         python-version: [3.9]
-
     steps:
     - uses: actions/checkout@v2
     - uses: ilammy/msvc-dev-cmd@v1    
